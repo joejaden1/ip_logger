@@ -3,7 +3,7 @@ render.yaml
 services:
   - type: web
     name: ip_logger
-    env: python
+    env: python3
     buildCommand: ""
     startCommand: python ip_logger.py
     plan: free
