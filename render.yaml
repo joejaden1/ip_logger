@@ -5,5 +5,5 @@ services:
     name: ip_logger
     env: python3
     buildCommand: ""
-    startCommand: python ip_logger.py
+    startCommand: gunicorn ip_logger.py
     plan: free
