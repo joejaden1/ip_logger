@@ -1,0 +1,9 @@
+render.yaml
+
+services:
+  - type: web
+    name: ip_logger
+    env: python
+    buildCommand: ""
+    startCommand: python ip_logger.py
+    plan: free
