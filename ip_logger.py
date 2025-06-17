@@ -22,6 +22,13 @@ def get_ip_info():
         <p>Country: {response.get('Country', 'N/A')}</p>
         <p>ISP: {response.get('ISP', 'N/A')}</p>
     """
+def show_logs():
+    try:
+        with open("log.txt", "r") as log:
+            content = log.read().replace('\n', '<br<')
+        return f"<h2> visites: </h2><p>{content}</p>"
+    except FileNotFoundError:
+        return "<p>vistis count:</p>"
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000)
