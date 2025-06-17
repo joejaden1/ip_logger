@@ -7,13 +7,20 @@ app = Flask(__name__)
 def get_ip_info():
     user_ip = request.remote_addr
     response = requests.get(f"http://ip-api.com/json/{user_ip}").json()  
+
+    from datetime import datetime
+    now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    log_line = f"[{now}] {user_ip} - {response.get('city, 'N/A'')}, {response.get('country, 'N/A'')} - {response.get('isp', 'N/A')}\n"
+
+    with open("log.txt", "a") as log:
+        log.write(log_line)
     
     return f"""
         <h1>Done!</h1>
         <p>IP: {user_ip}</p>
-        <p>City: {response.get('city', 'N/A')}</p>
-        <p>Country: {response.get('country', 'N/A')}</p>
-        <p>ISP: {response.get('isp', 'N/A')}</p>
+        <p>City: {response.get('City', 'N/A')}</p>
+        <p>Country: {response.get('Country', 'N/A')}</p>
+        <p>ISP: {response.get('ISP', 'N/A')}</p>
     """
 
 if __name__ == "__main__":
