@@ -10,7 +10,7 @@ def get_ip_info():
 
     from datetime import datetime
     now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    log_line = f"[{now}] {user_ip} - {response.get('city, 'N/A'')}, {response.get('country, 'N/A'')} - {response.get('isp', 'N/A')}\n"
+    log_line = f"[{now}] {user_ip} - {response.get('city', 'N/A')}, {response.get('country', 'N/A')} - {response.get('isp', 'N/A')}\n"
 
     with open("log.txt", "a") as log:
         log.write(log_line)
